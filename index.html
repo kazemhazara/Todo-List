@@ -2,30 +2,30 @@
 <html lang="fa" dir="rtl" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-List-Project</title>
+    <meta name="description" content="اپلیکیشن مدیریت وظایف ساخته شده با HTML، CSS و JavaScript" />
+    <title>Todo List</title>
     <link rel="stylesheet" href="./css/app.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
-  <body onload="getDataFromLocalStorage()">
+  <body>
     
     <div class="container">
-      <div class="container__header">
+      <header class="container__header">
         <h2 class="header__text">تودو لیست</h2>
-        <button class="btn__theme-toggle">
+        <button type="button" class="btn__theme-toggle">
          <i class="fa-solid fa-sun"></i>
         </button>
-      </div>
+      </header>
       <!--box-todo-list-->
-      <div class="container__main">
+      <main class="container__main">
         <div class="main__header">
          <div class="dropdown__all">
-           <button class="btn__all" data-status="all">
+           <button type="button" class="btn__all" data-status="all">
             <span class="btn__all-text">همه</span>
-            <i class="fa-solid fa-greater-than"></i>
+            <i class="fa-solid fa-greater-than" aria-hiddden="true"></i>
           </button>
           <ul class="dropdown__list hidden">
             <li class="dropdown__item" data-status="all">همه</li>
@@ -33,7 +33,7 @@
             <li class="dropdown__item" data-status="notcomplete">تکمیل نشده ها</li>
           </ul>
          </div>
-          <button class="btn-open__modal">
+          <button type="button" class="btn-open__modal">
             <i class="fa-solid fa-plus"></i>
             ایجاد تودو
           </button>
@@ -42,12 +42,14 @@
         </section>
   
       <!--modal-screen-->
-      <div class="modal__screen hidden">
+      <div class="modal__screen hidden"
+        role="dialog"
+        ria-modal="true">
         <div class="modal">
           <div class="modal__header">
             <span class="modal-header__text">ایجاد تودو</span>
-            <button class="modal-btn__close">
-              <i class="fa-solid fa-xmark"></i>
+            <button type="type" class="modal-btn__close">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
           </div>
           <div class="modal__main">
@@ -58,12 +60,12 @@
             />
           </div>
           <div class="modal__footer">
-            <button class="modal-btn__create">تایید</button>
-            <button class="modal-btn__cancel">انصراف</button>
+            <button type="button" class="modal-btn__create">تایید</button>
+            <button type="button" class="modal-btn__cancel">انصراف</button>
           </div>
         </div>
       </div>
-    </div>
+    </main>
     <script src="./js/app.js"></script>
   </body>
 </html>

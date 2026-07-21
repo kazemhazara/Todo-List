@@ -24,8 +24,8 @@ const closeModalScreen = () => {
 };
 /* addTodo Handler */
 const addTodo = () => {
-  const title = input.value;
-  const id = Math.floor(Math.random() * 9999);
+  const title = input.value.trim();
+  const id = Data.now();
   const newTodo = {
     title,
     id,
@@ -94,7 +94,7 @@ const showTodos = (shownTodos) => {
 };
 /* complete handler */
 const completeHandler = (todoId) => {
-  todos.some((todo) => {
+  todos.find((todo) => {
     if (todo.id === todoId) {
       todo.isComplete = true;
       return true;
@@ -108,6 +108,7 @@ const removeHandler = (todoId) => {
   const removeTodo = todos.findIndex((todo) => {
     return todo.id === todoId;
   });
+  if(remoceTodo===-1) return;
   todos.splice(removeTodo, 1);
   saveDataInToLocalStorage(todos);
   showTodos(todos);
@@ -183,6 +184,7 @@ btnModalCancel.addEventListener("click", closeModalScreen);
 btnModalCreate.addEventListener("click", addTodo);
 btnChangeTheme.addEventListener("click", changeThemeHandler);
 btnAll.addEventListener("click", openDropdownList);
+document.addEventListener("DOMContentLoaded", ()=>{ getDataFromLocalStorage();});
 /*document.addEventListener("click", () => {
   dropdownList.classList.add("hidden");
 });*/

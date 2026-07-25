@@ -108,7 +108,7 @@ const removeHandler = (todoId) => {
   const removeTodo = todos.findIndex((todo) => {
     return todo.id === todoId;
   });
-  if(remoceTodo===-1) return;
+  if(removeTodo===-1) return;
   todos.splice(removeTodo, 1);
   saveDataInToLocalStorage(todos);
   showTodos(todos);

@@ -25,7 +25,7 @@ const closeModalScreen = () => {
 /* addTodo Handler */
 const addTodo = () => {
   const title = input.value.trim();
-  const id = Data.now();
+  const id = Math.floor(Math.random()*9999);
   const newTodo = {
     title,
     id,
